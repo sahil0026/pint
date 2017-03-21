@@ -1,17 +1,28 @@
 <div class="widgets">
 
-  <div class="row">
+  <div class="row" [dragula]='"test-bag"'>
     <div class="col-lg-6 col-md-12">
-      <ba-card title="Hover Rows" baCardClass="with-scroll table-panel">
-        <hover-table></hover-table>
+      <ba-card title="Blocking Jobs" baCardClass="with-scroll table-panel">
+        <hover-table [refreshtime]="5000"></hover-table>
       </ba-card>
     </div>
     <div class="col-lg-6 col-md-12">
-      <ba-card title="Bordered Table" baCardClass="with-scroll table-panel">
-        <bordered-table></bordered-table>
+      <ba-card title="Locking Jobs" baCardClass="with-scroll table-panel">
+        <hover-table [refreshtime]="10000"></hover-table>
+      </ba-card>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <ba-card title="Running Jobs" baCardClass="with-scroll table-panel">
+        <hover-table [refreshtime]="2000"></hover-table>
+      </ba-card>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <ba-card title="Db Space" baCardClass="with-scroll table-panel">
+        <hover-table [refreshtime]="30000"></hover-table>
       </ba-card>
     </div>
   </div>
+<!-- 
   <div class="row">
     <div class="col-lg-6 col-md-12">
       <ba-card title="Condensed Table" baCardClass="with-scroll table-panel">
@@ -35,6 +46,6 @@
         <responsive-table></responsive-table>
       </ba-card>
     </div>
-  </div>
+  </div> -->
 
 </div>

@@ -1,7 +1,9 @@
 import { Component, ViewContainerRef } from '@angular/core';
 
 import { GlobalState } from './global.state';
-import { BaImageLoaderService, BaThemePreloader, BaThemeSpinner } from './theme/services';
+import { BaImageLoaderService, BaThemePreloader, BaThemeSpinner, AuthenticationService, UserService } from './theme/services';
+import { FakeBackendProvider } from './theme/helpers';
+
 import { BaThemeConfig } from './theme/theme.config';
 import { layoutPaths } from './theme/theme.constants';
 

@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-
+import { AuthenticationService } from '../../../../services/index';
+import { Router } from '@angular/router';
 import 'style-loader!./baMenuItem.scss';
 
 @Component({
@@ -8,6 +9,11 @@ import 'style-loader!./baMenuItem.scss';
 })
 export class BaMenuItem {
 
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService) {
+  }
+
   @Input() menuItem:any;
   @Input() child:boolean = false;
 
@@ -15,7 +21,15 @@ export class BaMenuItem {
   @Output() toggleSubMenu = new EventEmitter<any>();
 
   public onHoverItem($event):void {
+    console.log('inside onHoverItem 1');
     this.itemHover.emit($event);
+  }
+
+  public logout($event, item):void {
+    debugger;
+    console.log('Inside logout function');
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 
   public onToggleSubMenu($event, item):boolean {

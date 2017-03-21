@@ -10,7 +10,7 @@ const routes: Routes = [
     path: '',
     component: Tables,
     children: [
-      { path: 'basictables', component: BasicTables },
+      { path: '', component: BasicTables },
       { path: 'smarttables', component: SmartTables }
     ]
   }

@@ -22,7 +22,7 @@ import {
   BaFullCalendar,
   BaMenuItem,
   BaMenu,
-  BaMsgCenter,
+  // BaMsgCenter,
   BaMultiCheckbox,
   BaPageTop,
   BaPictureUploader,
@@ -37,6 +37,10 @@ import {
   BaThemeRun
 } from './directives';
 
+// import {
+//   FakeBackendProvider
+// } from './helpers';
+
 import {
   BaAppPicturePipe,
   BaKameleonPicturePipe,
@@ -47,7 +51,9 @@ import {
   BaImageLoaderService,
   BaMenuService,
   BaThemePreloader,
-  BaThemeSpinner
+  BaThemeSpinner,
+  AuthenticationService,
+  UserService
 } from './services';
 
 import {
@@ -65,7 +71,7 @@ const NGA_COMPONENTS = [
   BaFullCalendar,
   BaMenuItem,
   BaMenu,
-  BaMsgCenter,
+  // BaMsgCenter,
   BaMultiCheckbox,
   BaPageTop,
   BaPictureUploader,
@@ -85,11 +91,17 @@ const NGA_PIPES = [
   BaProfilePicturePipe
 ];
 
+// const NGA_HELPERS = [
+//   FakeBackendProvider
+// ];
+
 const NGA_SERVICES = [
   BaImageLoaderService,
   BaThemePreloader,
   BaThemeSpinner,
-  BaMenuService
+  BaMenuService,
+  AuthenticationService,
+  UserService
 ];
 
 const NGA_VALIDATORS = [
@@ -125,6 +137,7 @@ export class NgaModule {
         BaThemeConfig,
         ...NGA_VALIDATORS,
         ...NGA_SERVICES
+        // ...NGA_HELPERS
       ],
     };
   }

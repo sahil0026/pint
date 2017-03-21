@@ -1,4 +1,4 @@
-<div class="horizontal-scroll">
+<!-- <div class="horizontal-scroll">
   <table class="table table-hover">
     <thead>
     <tr class="black-muted-bg">
@@ -22,6 +22,35 @@
       <td class="table-arr"><i [ngClass]="{'icon-up': item.isPurchasesUp, 'icon-down': !item.isPurchasesUp }"></i></td>
       <td class="align-right">{{item.percent}}</td>
       <td class="table-arr"><i [ngClass]="{'icon-up': item.isPercentUp, 'icon-down': !item.isPercentUp }"></i></td>
+    </tr>
+    </tbody>
+  </table>
+</div> -->
+<div class="horizontal-scroll">
+  <table class="table table-hover">
+    <thead>
+    <tr class="black-muted-bg">
+      <!-- <th class="browser-icons"></th> -->
+      <th class="table-arr">Name</th>
+      <th class="table-arr">Office</th>
+      <th class="table-arr">Salary</th>
+      <!-- <th class="table-arr">Start Date</th> -->
+      <!-- <th class="table-arr">Start Date</th> -->
+      <th class="table-arr">Ext.</th>
+      <!-- <th class="table-arr"></th> -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of metricsTableData" let i = index; class="no-top-border">
+      <!-- <td><img src="{{ ( item.image | baAppPicture ) }}" width="20" height="20"></td> -->
+      <!-- <td ngClass="nowrap">{{item.browser}}</td> -->
+      <td class="table-arr">{{item.name}}</td>
+      <td class="table-arr">{{item.office}}</td>
+      <td class="table-arr">{{item.salary}}</td>
+      <!-- <td class="table-arr">{{item.purchases}}</td> -->
+      <!-- <td class="table-arr">{{item.start_date}}</td> -->
+      <td class="table-arr">{{item.extn}}</td>
+      <!-- <td class="table-arr"><i [ngClass]="{'icon-up': item.isPercentUp, 'icon-down': !item.isPercentUp }"></i></td> -->
     </tr>
     </tbody>
   </table>

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 import {BasicTablesService} from '../../basicTables.service';
 
@@ -7,10 +7,34 @@ import {BasicTablesService} from '../../basicTables.service';
   templateUrl: './hoverTable.html'
 })
 export class HoverTable {
+	@Input()
+	refreshtime: number = 0;
 
-  metricsTableData:Array<any>;
+	tableData:Array<any>;
+	metricsTableData:Array<any>;
 
-  constructor(private _basicTablesService: BasicTablesService) {
-    this.metricsTableData = _basicTablesService.metricsTableData;
-  }
+	constructor(private _basicTablesService: BasicTablesService) {
+		// this.tableData = _basicTablesService.tableData;
+		this.tableData = _basicTablesService.peopleData;
+	}
+
+	ngOnInit() {
+		var i:number;
+		this.metricsTableData = [];
+		for(i = 0;i< 5; i++) {
+		 var index = Math.floor(Math.random() * this.tableData.length);
+		 console.log('index: ' + index);
+		 this.metricsTableData.push(this.tableData[index]);
+	 	}
+
+		setInterval(()=> {
+			var i:number;
+			this.metricsTableData = [];
+			for(i = 0;i< 5; i++) {
+			 var index = Math.floor(Math.random() * this.tableData.length);
+			 console.log('index: ' + index);
+			 this.metricsTableData.push(this.tableData[index]);
+		 	}
+		},this.refreshtime);
+	}
 }

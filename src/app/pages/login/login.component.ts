@@ -1,5 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+
+import { Router } from '@angular/router';
+import { Http, Headers, Response } from '@angular/http';
+import { AuthenticationService } from '../../theme/services/index';
 
 import 'style-loader!./login.scss';
 
@@ -7,14 +11,17 @@ import 'style-loader!./login.scss';
   selector: 'login',
   templateUrl: './login.html',
 })
-export class Login {
+export class Login implements OnInit{
 
   public form:FormGroup;
   public email:AbstractControl;
   public password:AbstractControl;
   public submitted:boolean = false;
 
-  constructor(fb:FormBuilder) {
+  constructor(
+    fb:FormBuilder,
+    private router: Router,
+    private authenticationService: AuthenticationService) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
@@ -24,11 +31,31 @@ export class Login {
     this.password = this.form.controls['password'];
   }
 
+  ngOnInit() {
+      // reset login status
+      this.authenticationService.logout();
+  }
+
   public onSubmit(values:Object):void {
     this.submitted = true;
     if (this.form.valid) {
       // your code goes here
-      // console.log(values);
+      // console.log(Object.values(values));
+      console.log('Inside onSubmit');
+      console.log('email: ' + this.form.controls['email']);
+      console.log('password: ' + this.form.controls['password']);
+      debugger;
+      this.authenticationService.login(values.email, values.password)
+        .subscribe(result => {
+            console.log('Inside login response');
+            debugger;
+            if (result === true) {
+                this.router.navigate(['/']);
+            } else {
+                // this.error = 'Username or password is incorrect';
+                // this.loading = false;
+            }
+        });
     }
   }
 }

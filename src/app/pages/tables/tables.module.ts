@@ -3,6 +3,7 @@ import { CommonModule }  from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { DragulaModule } from 'ng2-dragula';
 
 import { routing }       from './tables.routing';
 import { Tables } from './tables.component';
@@ -24,6 +25,7 @@ import { SmartTablesService } from './components/smartTables/smartTables.service
     NgaModule,
     routing,
     Ng2SmartTableModule,
+    DragulaModule
   ],
   declarations: [
     Tables,
