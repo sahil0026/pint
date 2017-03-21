@@ -28,10 +28,7 @@ export class BaPageTop {
     // get users from secure api end point
     this.userService.getUsers()
       .subscribe(user => {
-        console.log('user : ' , user);
-        debugger;
           this.user = user;
-
       });
   }
 

@@ -7,7 +7,7 @@ export let FakeBackendProvider = {
     useFactory: function (backend: MockBackend, options: BaseRequestOptions) {
         // configure fake backend
         backend.connections.subscribe((connection: MockConnection) => {
-            let testUser = { email: 'test@test.com', password: 'test', fullname: 'Test User', image: 'user.png' };
+            let testUser = { email: 'pintdemo@geminisolutions.in', password: '12345', fullname: 'pINT Admin', image: 'user.png' };
 
             // wrap in timeout to simulate server api call
             setTimeout(() => {

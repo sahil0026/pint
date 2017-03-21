@@ -23,7 +23,6 @@ export class HoverTable {
 		this.metricsTableData = [];
 		for(i = 0;i< 5; i++) {
 		 var index = Math.floor(Math.random() * this.tableData.length);
-		 console.log('index: ' + index);
 		 this.metricsTableData.push(this.tableData[index]);
 	 	}
 
@@ -32,7 +31,6 @@ export class HoverTable {
 			this.metricsTableData = [];
 			for(i = 0;i< 5; i++) {
 			 var index = Math.floor(Math.random() * this.tableData.length);
-			 console.log('index: ' + index);
 			 this.metricsTableData.push(this.tableData[index]);
 		 	}
 		},this.refreshtime);
