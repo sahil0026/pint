@@ -50,6 +50,7 @@ export class Login implements OnInit{
             if (result === true) {
                 this.router.navigate(['/']);
             } else {
+                alert('Invalid Credentials');
                 // this.error = 'Username or password is incorrect';
                 // this.loading = false;
             }
