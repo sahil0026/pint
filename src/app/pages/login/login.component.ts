@@ -12,26 +12,15 @@ import 'style-loader!./login.scss';
   templateUrl: './login.html',
 })
 export class Login implements OnInit{
-
-  public form:FormGroup;
-  // public email:AbstractControl;
-  // public password:AbstractControl;
   public submitted:boolean = false;
 
   email: string = 'pintdemo@geminisolutions.in';
   password: string = '12345';
+  error: string;
 
   constructor(
-    // fb:FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService) {
-    // this.form = fb.group({
-    //   'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-    //   'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
-    // });
-
-    // this.email = this.form.controls['email'];
-    // this.password = this.form.controls['password'];
   }
 
   ngOnInit() {
@@ -42,7 +31,6 @@ export class Login implements OnInit{
   public onSubmit():void {
     this.submitted = true;
     // if (this.form.valid) {
-      // your code goes here
       console.log('Email: ' + this.email);
       this.authenticationService.login(this.email, this.password)
         .subscribe(result => {
@@ -50,8 +38,7 @@ export class Login implements OnInit{
             if (result === true) {
                 this.router.navigate(['/']);
             } else {
-                alert('Invalid Credentials');
-                // this.error = 'Username or password is incorrect';
+                this.error = 'Invalid Credentials';
                 // this.loading = false;
             }
         });
