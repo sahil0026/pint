@@ -26,7 +26,6 @@ export class BaMenuItem {
   }
 
   public logout($event, item):void {
-    debugger;
     console.log('Inside logout function');
     this.authenticationService.logout();
     this.router.navigate(['/login']);
